@@ -17,13 +17,20 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
 
 
   showAlert() {
-    QuickAlert.show(
-   context: context,
-   type: QuickAlertType.info,
-   title: "1. Browse",
-   text: "Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store.",
-   
-  );
+    showDialog(context: context,
+     builder: (BuildContext context) {
+        return AlertDialog(
+      title: Text("1. Browse"),
+      content: Text("Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store."),
+      actions: [
+        OutlinedButton(
+          onPressed: () => {
+                Navigator.of(context).pop(),
+              }, child: Text("Next"))
+      ],
+     );
+     }
+     );
 }
   @override
   Widget build(BuildContext context) {
@@ -37,21 +44,21 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
            Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //mainAxisAlignment: MainAxisAlignment.center,
-              //MainAxisAlignment.spaceAround,
-               Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("images/kangrooicon.png"),
-                fit: BoxFit.cover)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 155.0),
+                child: SizedBox(
+                  height: 116,
+                  width: 116,
+                  child: IconButton(onPressed: null, icon: Image.asset("images/kangrooicon.png"), iconSize: 0, ),
+                )
               ),
-            ),
             ElevatedButton(
               onPressed: (() => showAlert()), child: Icon(Icons.question_mark))
             ],
            ),
-            //IconButton(onPressed: null, icon: Image.asset("images/kangrooicon.png")),
+           // IconButton(onPressed: null, icon: Image.asset("images/kangrooicon.png")),
               
-              SizedBox(height: 167.0,),
+              SizedBox(height: 50.0,),
                   const Text(
                     'Clean Kangroo',
                     style: TextStyle(
