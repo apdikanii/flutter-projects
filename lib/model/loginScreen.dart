@@ -1,10 +1,10 @@
 //import 'dart:js';
-
 import 'package:flutter/material.dart';
-import 'package:kngroo/model/showAlert.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+
+import '../ui/payment.dart';
 
 class LoginScreenpage extends StatefulWidget {
   const LoginScreenpage({super.key});
@@ -20,15 +20,17 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
     showDialog(context: context,
      builder: (BuildContext context) {
         return AlertDialog(
-      title: Text("1. Browse"),
-      content: Text("Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store."),
-      actions: [
-        OutlinedButton(
-          onPressed: () => {
+                    
+       //icon: Icon(Icons.question_answer_rounded),
+        title: Text("1. Browse"),
+        content: Text("Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store."),
+        actions: [
+            OutlinedButton(
+              onPressed: () => {
                 Navigator.of(context).pop(),
               }, child: Text("Next"))
-      ],
-     );
+            ],
+        );
      }
      );
 }
@@ -36,7 +38,6 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 20.0),
-      
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
@@ -45,7 +46,7 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 155.0),
+                padding: EdgeInsets.symmetric(horizontal: 116.0),
                 child: SizedBox(
                   height: 116,
                   width: 116,
@@ -53,8 +54,9 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                 )
               ),
             ElevatedButton(
-              onPressed: (() => showAlert()), child: Icon(Icons.question_mark))
+              onPressed: (() => showAlert()), child: Icon(Icons.question_mark),)
             ],
+            crossAxisAlignment: CrossAxisAlignment.start,
            ),
            // IconButton(onPressed: null, icon: Image.asset("images/kangrooicon.png")),
               
@@ -71,7 +73,7 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
              const TextField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  fillColor: Colors.white,
+                  fillColor: Colors.transparent,
                   hintText: 'Email', hintStyle: TextStyle(color: Colors.white),
                   prefixIcon: Icon(Icons.mail, color: Colors.blue),
                   contentPadding: EdgeInsets.all(8.0),
@@ -109,104 +111,104 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                 ),
               ),
               SizedBox(height: 32.0,),
-              Container(
-                width: double.infinity,
-                child: RawMaterialButton(
-                  fillColor: Colors.purple,
-                 //fillColor: Color(0xF3D5AF1),
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0)
-                  ),
-                  onPressed: (){},
-                  child: Text("Log in",style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold
-                  ),),
-                  ),
+               Container(
+                 width: double.infinity,
+                  child: RawMaterialButton(
+                   fillColor: Colors.purple,
+                  //fillColor: Color(0xF3D5AF1),
+                   padding: EdgeInsets.symmetric(vertical: 15.0),
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(12.0)
+                   ),
+                   onPressed: ()=>Payment(),
+                   child: Text("Log in",style: TextStyle(
+                     color: Colors.white,
+                     fontSize: 18.0,
+                     fontWeight: FontWeight.bold
+                   ),),
+                   ),
    
-              ),
-              SizedBox(height: 45.0,),
-              //Divider(indent: ln10, endIndent: ln10, color: Colors.white,),
-              const Divider(
-                height: 2,
-                thickness: 2,
-                indent: 0,
-                endIndent: 15,
-                color: Colors.white,
-              ),
-              // Container(
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       const Divider(
-              //        height: 3,
-              //         thickness: 5,
-              //         indent: 3,
-              //         endIndent: 0,
-              //         color: Colors.white,
-              //       ),
-              //       Text("OR"),
-              //       Divider(
-              //         height: 2,
-              //         thickness: 2,
-              //         indent: 0,
-              //         endIndent: 5,
-              //         color: Colors.white,
-              //       )
-              //     ],
-              //   ),
-              // ),
+               ),
+               SizedBox(height: 45.0,),
+               //Divider(indent: ln10, endIndent: ln10, color: Colors.white,),
+               const Divider(
+                 height: 2,
+                 thickness: 2,
+                 indent: 0,
+                 endIndent: 15,
+                 color: Colors.white,
+               ),
+               // Container(
+               //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+               //     children: [
+               //       const Divider(
+               //        height: 3,
+               //         thickness: 5,
+               //         indent: 3,
+               //         endIndent: 0,
+               //         color: Colors.white,
+               //       ),
+               //       Text("OR"),
+               //       Divider(
+               //         height: 2,
+               //         thickness: 2,
+               //         indent: 0,
+               //         endIndent: 5,
+               //         color: Colors.white,
+               //       )
+               //     ],
+               //   ),
+               // ),
 
-              SizedBox(height: 80,),
+               SizedBox(height: 80,),
 
-              Container(
-                width: double.infinity,
-                child: RawMaterialButton(
+               Container(
+                 width: double.infinity,
+                 child: RawMaterialButton(
                   fillColor: Colors.purple,
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0)
-                  ),
-                  child: Text("Sign Up With Email",style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold
-                  ),),
-                  onPressed: () {},),
+                   padding: EdgeInsets.symmetric(vertical: 15.0),
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(12.0)
+                   ),
+                   child: Text("Sign Up With Email",style: TextStyle(
+                     color: Colors.white,
+                     fontSize: 18.0,
+                     fontWeight: FontWeight.bold
+                   ),),
+                   onPressed: () {},),
                   
-              ),
-              SizedBox(height: 5.0,),
+               ),
+             SizedBox(height: 5.0,),
               Container(
-                width: double.infinity,
-                child: RawMaterialButton(
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                 width: double.infinity,
+                 child: RawMaterialButton(
+                   padding: EdgeInsets.symmetric(vertical: 15.0),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0)
-                  ),
-                  child: Text("Sign Up With Google",style: TextStyle(
-                    color: Colors.purple,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold
-                  ),),
-                  fillColor: Colors.white,
-                  onPressed: (){},),
-              ),
-              // SizedBox(height: 80.0,),
-              Spacer(),
-              Center(
-                child: Text("Terms of Service and Pivacy Policy",style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold
-                  )),
-              )
+                     borderRadius: BorderRadius.circular(12.0)
+                   ),
+                   child: Text("Sign Up With Google",style: TextStyle(
+                     color: Colors.purple,
+                     fontSize: 18.0,
+                     fontWeight: FontWeight.bold
+                   ),),
+                   fillColor: Colors.white,
+                   onPressed: (){},),
+               ),
+               // SizedBox(height: 80.0,),
+               Spacer(),
+               Center(
+                 child: Text("Terms of Service and Pivacy Policy",style: TextStyle(
+                     color: Colors.white,
+                     fontSize: 18.0,
+                     fontWeight: FontWeight.bold
+                   )),
+               )
 
-          ],
+           ],
         ),
-      ),
-    );
+       ),
+     );
   }
 }
 
