@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kngroo/constants/color_constant.dart';
+import 'package:kngroo/ui/simpleMap.dart';
 
 class Payment extends StatefulWidget {
   const Payment({super.key});
@@ -21,10 +22,10 @@ class _PaymentState extends State<Payment> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(29.0),
-              child: Text("Payment", style: TextStyle(
-                        color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(29.0),
+              child: Text("Payment", textAlign: TextAlign.center, style: GoogleFonts.karla(
+                        color: SeconderyText,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),),
             ),
@@ -78,7 +79,7 @@ class _PaymentState extends State<Payment> {
             ),
            
             //shop card and buttom
-            SizedBox(height: 39,),
+            SizedBox(height: 29,),
             Container(
               height: 303,
               width: 334,
@@ -86,15 +87,20 @@ class _PaymentState extends State<Payment> {
               decoration: BoxDecoration(
                 color: BackgroundColor,
               ),
-              child: SvgPicture.asset("images/shopp.SVG"),
+              child: SvgPicture.asset("images/sps.svg",
+               height: 400.0,
+                width: 300.0,
+                allowDrawingOutsideViewBox: true,),
             ),
-            SizedBox(height: 85,),
+            SizedBox(height: 65,),
             Container(
               height: 55,
               width: 350,
               child: RawMaterialButton(
               child: const Text("Add Cards"),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SimpleMap(),));
+              },
               fillColor: PrimaryBrand,
               hoverColor: SecondaryBrand,
               shape: RoundedRectangleBorder(
