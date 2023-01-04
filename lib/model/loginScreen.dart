@@ -82,7 +82,8 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
       body: Container(
         height: MediaQuery.of(context).size.height,
        decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage("images/backgroundimage.png"))
+        image: DecorationImage(image: AssetImage("images/backgroundimage.png"),
+        fit: BoxFit.cover)
        ),
         child: Column(
         children: [

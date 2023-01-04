@@ -68,6 +68,8 @@ flutter:
   assets:
     - images/backgroundimage.png
     - images/kangrooicon.png
+    - images/profil_pc.png
+    - images/map.png
     - images/pops.png
     - images/sps.svg
 

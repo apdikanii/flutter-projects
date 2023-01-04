@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kngroo/constants/color_constant.dart';
+import 'package:kngroo/ui/profile.dart';
 import 'package:kngroo/ui/simpleMap.dart';
 
 class Payment extends StatefulWidget {
@@ -99,7 +100,7 @@ class _PaymentState extends State<Payment> {
               child: RawMaterialButton(
               child: const Text("Add Cards"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SimpleMap(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(),));
               },
               fillColor: PrimaryBrand,
               hoverColor: SecondaryBrand,

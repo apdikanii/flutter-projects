@@ -13,6 +13,7 @@ const Accent2 = Color(0xFFE2F3F5);
 const PrimaryText = Color(0xFFFFFFFF);
 const SeconderyText = Color(0xF0000000);
 const BackgroundColor2 = Color(0xFFFFFFFF);
+const ProfileBackground = Color(0xF0F9F9F9);
 
 
     // return Container(

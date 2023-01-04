@@ -31,3 +31,22 @@ import 'package:kngroo/constants/color_constant.dart';
     var kTutorialButtom = GoogleFonts.karla(
       fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryText,
     );
+    //profile 
+    var kprofiletitle = GoogleFonts.rubik(
+      fontSize: 34, fontWeight: FontWeight.w700, color: SeconderyText
+    );
+    var kprofileSecTitle = GoogleFonts.rubik(
+      fontSize: 22, fontWeight: FontWeight.w700, color: SeconderyText
+    );
+    var kprofileEmail = GoogleFonts.karla(
+      fontSize: 17, fontWeight: FontWeight.w700, color: SeconderyText
+    );
+    var kprofileButtom = GoogleFonts.karla(
+      fontSize: 17, fontWeight: FontWeight.w700, color: BackgroundColor2
+    );
+    var kprofileButNavBar = GoogleFonts.karla(
+      fontSize: 17, fontWeight: FontWeight.w700, color: SeconderyText
+    );
+    var kprofileButNavBarHov = GoogleFonts.karla(
+      fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryBrand
+    );
