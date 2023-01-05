@@ -14,6 +14,7 @@ const PrimaryText = Color(0xFFFFFFFF);
 const SeconderyText = Color(0xF0000000);
 const BackgroundColor2 = Color(0xFFFFFFFF);
 const ProfileBackground = Color(0xF0F9F9F9);
+const NearToBlack = Color(0xFF585858);
 
 
     // return Container(

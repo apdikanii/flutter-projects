@@ -50,3 +50,16 @@ import 'package:kngroo/constants/color_constant.dart';
     var kprofileButNavBarHov = GoogleFonts.karla(
       fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryBrand
     );
+    //service card
+    var KservCardtitle = GoogleFonts.rubik(
+      fontSize: 22, fontWeight: FontWeight.w700, color: SeconderyText
+      );
+    var KservCartsmalTitle = GoogleFonts.karla(
+      fontSize: 17, fontWeight: FontWeight.w700, color: SeconderyText
+    );
+    var KservSubTitle = GoogleFonts.karla(
+      fontSize: 14, fontWeight: FontWeight.w400, color: NearToBlack
+    );
+    var KservSubTitleSmal = GoogleFonts.karla(
+      fontSize: 14, fontWeight: FontWeight.w400, color: PrimaryBrand
+    );

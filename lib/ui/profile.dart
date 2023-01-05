@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kngroo/constants/color_constant.dart';
+import 'package:kngroo/ui/service.dart';
 
 import '../constants/style_constant.dart';
 
@@ -168,12 +169,12 @@ class _ProfilePageState extends State<ProfilePage> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.only(left: 29, right: 25, top: 30),
                       decoration: BoxDecoration(
-                        color: PrimaryBrand,
+                        color: SecondaryBrand,
                         borderRadius: BorderRadius.circular(6)
                       ),
                       child: InkWell(
                         onTap: () {
-                          
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Service()));
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -203,7 +204,7 @@ class _ProfilePageState extends State<ProfilePage> {
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.request_quote),
+            icon: Icon(Icons.dashboard_rounded),
             label: 'Request',
           ),
           BottomNavigationBarItem(
