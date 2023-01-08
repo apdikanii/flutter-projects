@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kngroo/constants/color_constant.dart';
 import 'package:kngroo/ui/service.dart';
+import 'package:kngroo/ui/simpleMap.dart';
 
 import '../constants/style_constant.dart';
 
@@ -12,42 +13,65 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
+class MenuItem{
+  final IconData iconData;
+  final String text;
 
+  MenuItem(this.iconData, this.text);
+}
 class _ProfilePageState extends State<ProfilePage> {
-
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+  final menuItemlist = const <MenuItem> [
+    //MenuItem(Icons.person_add, "Profile"),
+    //  MenuItem(Icons.dashboard_rounded, "Request"),
+    //   MenuItem(Icons.home_repair_service_rounded, "Service"),
   ];
+  int index = 0;
+  final _buildBody = const <Widget>[ProfilePage(), Service(),SimpleMap()];
+  
+ 
+ //int _selectedIndex = 0;
+  // static const TextStyle optionStyle =
+  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static const List _widgetOptions = [
+  //   Text(
+  //     'Index 0: Profile',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 1: Request',
+  //     style: optionStyle,
+  //   ),
+  //   Text(
+  //     'Index 2: Service',
+  //     style: optionStyle,
+  //   ),
+  // ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
+  // }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile", style: kprofiletitle,),
         centerTitle: false,
-        elevation: 0,
+        elevation: 0.33,
+        leadingWidth: 0,
         backgroundColor: ProfileBackground,
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 8.0, left: 14),
+          child: Text("Profile", style: kprofiletitle,),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 21.0),
+            child: Text("Edit", style: kprofileButNavBarHov,),
+          )
+        ],
       ),
       backgroundColor: BackgroundColor2,
       body: Container(
@@ -67,21 +91,19 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 24),
-                              child: Text("First Last", style: kprofileSecTitle,),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 32.0, top: 7),
-                              child: Text("email@gmail.com", style: kprofileEmail,),
-                            ),
-                        ],
-                      ),
+                    padding: const EdgeInsets.only(left: 0.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 24),
+                            child: Text("First Last", style: kprofileSecTitle,),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 32.0, top: 7),
+                            child: Text("email@gmail.com", style: kprofileEmail,),
+                          ),
+                      ],
                     ),
                   ),
                 ],
@@ -113,6 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  
                   //inside the secode part
                     Container(
                       height: 53,
@@ -195,27 +218,45 @@ class _ProfilePageState extends State<ProfilePage> {
           ],
         ),
       ),
-
+       
       //buttom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_rounded),
-            label: 'Request',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_repair_service_rounded),
-            label: 'School',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: PrimaryBrand,
-        onTap: _onItemTapped,
-      ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.shifting,
+          currentIndex: index,
+          onTap: (x) {
+            setState(() {
+              index = x;
+            });
+          },
+          elevation: 16,
+          // showUnselectedLabels: Colors.black,
+          // showSelectedLabels: PrimaryBrand,
+          
+          items: menuItemlist
+            .map((MenuItem menuItem) => BottomNavigationBarItem(
+              icon: Icon(menuItem.iconData),
+              label: menuItem.text
+              )).toList(),
+              ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //       label: 'Profile',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.dashboard_rounded),
+      //       label: 'Request',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home_repair_service_rounded),
+      //       label: 'Service',
+      //     ),
+      //   ],
+      //   currentIndex: _selectedIndex,
+      //   selectedItemColor: PrimaryBrand,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }

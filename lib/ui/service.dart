@@ -19,17 +19,17 @@ class _ServiceState extends State<Service> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static const List<Widget> _widgetOptions = [
     Text(
-      'Index 0: Home',
+      'Index 0: Profile',
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Request',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Services',
       style: optionStyle,
     ),
   ];
@@ -45,9 +45,13 @@ class _ServiceState extends State<Service> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Services", style: kprofiletitle,),
         centerTitle: false,
-        elevation: 0,
+        leadingWidth: 0,
+        elevation: 0.33,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 14.0),
+          child: Text("Services", style: kprofiletitle,),
+        ),
         backgroundColor: ProfileBackground,
       ),
       backgroundColor: BackgroundColor2,
@@ -75,7 +79,7 @@ class _ServiceState extends State<Service> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home_repair_service_rounded),
-            label: 'School',
+            label: 'Services',
           ),
         ],
         currentIndex: _selectedIndex,

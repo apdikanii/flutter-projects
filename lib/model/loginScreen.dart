@@ -26,29 +26,47 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
   int _currIndex = 0;
 
     final login = TextEditingController();
-    final signup = TextEditingController();
+    final signupG = TextEditingController();
+    final popup = TextEditingController();
 
   showAlert() {
     showDialog(context: context,
-     builder: (BuildContext context) {
+     builder: (BuildContext context,) {
+      BorderRadius.circular(18);
       return AlertDialog(
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: const <Widget>[
-              Image(image: AssetImage("images/pops.png")),
-              //Title(color: Colors.black, child: Text("1. Browse")),
-              Text('Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store.'),
-            ],
+        content: Padding(
+          padding: const EdgeInsets.only(top: 55, bottom: 25),
+          child: SingleChildScrollView(
+            child: ListBody(
+              children: const <Widget>[
+                Image(image: AssetImage("images/pops.png"), height: 75, width: 75, ),
+                Flexible(child: Padding(
+                  padding: EdgeInsets.only(bottom: 25.0, top: 19),
+                  child: Text("1. Browse", textAlign: TextAlign.center, style: TextStyle(
+                    fontSize: 26, fontWeight: FontWeight.w500, color: PrimaryBrand
+                  ),),
+                )),
+                //Title(color: Colors.black, child: Text("1. Browse")),
+                Text('Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store.',
+                 textAlign: TextAlign.center, style: TextStyle(
+                  fontSize: 17, fontWeight: FontWeight.w400, color: SeconderyText
+                 ),),
+              ],
+            ),
           ),
         ),
          actions: [
-            ElevatedButton(
-              onPressed: () => {
-                Navigator.of(context).pop(),
-              }, child: const Text("Next",),
-             
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 42),
+            child: MyButtom(controller: popup, text: "Next"),
+          )
+          // ElevatedButton(
+          //   onPressed: () => {
+          //     Navigator.of(context).pop(),
+          //   }, child: const Text("Next",),
+            
+          //   )
+          ],
       );
       // return CupertinoAlertDialog(
       //     content: Image.asset("images/pops.png"),
@@ -79,9 +97,10 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: Container(
         height: MediaQuery.of(context).size.height,
-       decoration: BoxDecoration(
+       decoration: const BoxDecoration(
         image: DecorationImage(image: AssetImage("images/backgroundimage.png"),
         fit: BoxFit.cover)
        ),
@@ -91,14 +110,14 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
           Container(
             margin: const EdgeInsets.only(top: 75, left: 157),
             child: Row(
-             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset("images/kangrooicon.png"),
                  Padding(
                    padding: const EdgeInsets.only(left: 42.0),
                    child: ElevatedButton(
-                    onPressed: (() => showAlert()), child: const Icon(Icons.question_mark,), ),
+                    onPressed: (() => showAlert()), child: const Icon(Icons.question_mark,),  ),
                  ),
               ],
             ),
@@ -110,7 +129,7 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
           Container(
             child: Column(
               children: [
-                // login and password part
+                // TextFiel login
                 const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
                       child: TextField(
@@ -133,7 +152,7 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                   ),
                 ),
                 const SizedBox(height: 20,),
-
+                //textfield Password
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: TextField(
@@ -160,9 +179,6 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                 ),
                 //login Buttom
                 Container(
-                  height: 55,
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.only(left: 40, right: 40, top: 12),
                   child: Column(
                     children: [
                       MyButtom(
@@ -172,6 +188,7 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                     ],
                   )
                 ),
+
                 // line seperater
                 const SizedBox(height: 45,),
                  Container(
@@ -182,16 +199,18 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                               child:  Container(
                                   margin: const EdgeInsets.only(left: 40.0, right: 20.0),
                                   child: const Divider(
-                                    color: SeconderyText,
+                                    color: hinttexts,
                                     height: 36,
                                   )),
                             ),
-                            const Text("OR"),
+                            const Text("OR", style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w400, color: PrimaryText
+                            ),),
                             Expanded(
                               child: Container(
                                   margin: const EdgeInsets.only(left: 20.0, right: 40.0),
                                   child: const Divider(
-                                    color: SeconderyText,
+                                    color: hinttexts,
                                     height: 36,
                                   )),
                             ),
@@ -199,40 +218,41 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                     ],
                   ),
                  ),
+
                  //signUp Buttom
                  Container(
-                  height: 55,
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.only(left: 40, right: 40, top: 80),
+                  margin: const EdgeInsets.only(top: 68),
                   child: Column(
                     children: [
                       MyButtom(
-                        controller: signup,
+                        controller: signupG,
                         text: "Sign Up With Email",
                       ),
                     ],
                   ),
                  ),
-                 Container(
-                  height: 55,
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.only(left: 40, right: 40, top: 4),
-                  alignment: Alignment.center,
-                 
-                     decoration: BoxDecoration(
-                    color: BackgroundColor2,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                   child: ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Payment(),));
-                  }, 
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Color(0xFFFFFFFF)),
+                SizedBox(height: 4,),
+
+                //SignUP with google
+                  Container(
+                    height: 55,
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 40, right: 40),
+                    child: RawMaterialButton(
+                    child: Text("Sign Up With Google",style: TextStyle(
+                        fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryBrand
+                      ),),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Payment(),));
+                    },
+                    fillColor: BackgroundColor2,
+                    hoverColor: SecondaryBrand,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                  child: Text("Sign Up With Google",style: TextStyle(
-                    fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryBrand
-                  ),),)
-                 ),
+                    ),
+                  ),
+
                  Padding(
                    padding: const EdgeInsets.only(left: 77, right: 77, top: 65,),
                    child: Text("Terms of Service and Privacy Policy", style: KloginHintStyle),
