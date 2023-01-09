@@ -7,6 +7,8 @@ import 'package:kngroo/constants/color_constant.dart';
 import 'package:kngroo/ui/profile.dart';
 import 'package:kngroo/ui/simpleMap.dart';
 
+import '../model/bottomNavigationBar.dart';
+
 class Payment extends StatefulWidget {
   const Payment({super.key});
 
@@ -100,7 +102,7 @@ class _PaymentState extends State<Payment> {
               child: RawMaterialButton(
               child: const Text("Add Cards"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Bottnavbar(),));
               },
               fillColor: PrimaryBrand,
               hoverColor: SecondaryBrand,

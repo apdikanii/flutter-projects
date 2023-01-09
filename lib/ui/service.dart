@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kngroo/constants/color_constant.dart';
 import 'package:kngroo/model/service_list.dart';
+import 'package:kngroo/ui/simpleMap.dart';
 
 import '../constants/style_constant.dart';
 
@@ -16,29 +17,7 @@ class Service extends StatefulWidget {
 class _ServiceState extends State<Service> {
   final List<Serv_list> serv_card = Serv_list.getServ();
 
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = [
-    Text(
-      'Index 0: Profile',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Request',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Services',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+   
 
 
   @override
@@ -67,25 +46,9 @@ class _ServiceState extends State<Service> {
       ),
 
       //buttom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.request_quote),
-            label: 'Request',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_repair_service_rounded),
-            label: 'Services',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: PrimaryBrand,
-        onTap: _onItemTapped,
-      ),
+      
+      
+      
     );
   }
   

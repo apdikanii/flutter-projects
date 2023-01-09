@@ -6,6 +6,7 @@ import 'package:kngroo/ui/service.dart';
 import 'package:kngroo/ui/simpleMap.dart';
 
 import '../constants/style_constant.dart';
+import '../model/bottomNavigationBar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -13,46 +14,26 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
-class MenuItem{
-  final IconData iconData;
-  final String text;
 
-  MenuItem(this.iconData, this.text);
-}
+
+
+// class MenuItem{
+//   final IconData iconData;
+//   final String text;
+
+//   MenuItem(this.iconData, this.text);
+// }
+
 class _ProfilePageState extends State<ProfilePage> {
-  final menuItemlist = const <MenuItem> [
-    //MenuItem(Icons.person_add, "Profile"),
-    //  MenuItem(Icons.dashboard_rounded, "Request"),
-    //   MenuItem(Icons.home_repair_service_rounded, "Service"),
-  ];
-  int index = 0;
-  final _buildBody = const <Widget>[ProfilePage(), Service(),SimpleMap()];
+  // final menuItemlist = [
+  //   MenuItem(Icons.person_add, "Profile"),
+  //    MenuItem(Icons.dashboard_rounded, "Request"),
+  //     MenuItem(Icons.home_repair_service_rounded, "Service"),
+  // ];
+  // int index = 0;
+  // final _buildBody = const <Widget>[ProfilePage(), Service(),SimpleMap()];
   
  
- //int _selectedIndex = 0;
-  // static const TextStyle optionStyle =
-  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  // static const List _widgetOptions = [
-  //   Text(
-  //     'Index 0: Profile',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 1: Request',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 2: Service',
-  //     style: optionStyle,
-  //   ),
-  // ];
-
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -220,43 +201,26 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
        
       //buttom Navigation Bar
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.shifting,
-          currentIndex: index,
-          onTap: (x) {
-            setState(() {
-              index = x;
-            });
-          },
-          elevation: 16,
-          // showUnselectedLabels: Colors.black,
-          // showSelectedLabels: PrimaryBrand,
+         
+        // bottomNavigationBar: BottomNavigationBar(
+        //   type: BottomNavigationBarType.shifting,
+        //   currentIndex: index,
+        //   onTap: (x) {
+        //     setState(() {
+        //       index = x;
+        //     });
+        //   },
+        //   elevation: 16,
+        //   // showUnselectedLabels: Colors.black,
+        //   // showSelectedLabels: PrimaryBrand,
           
-          items: menuItemlist
-            .map((MenuItem menuItem) => BottomNavigationBarItem(
-              icon: Icon(menuItem.iconData),
-              label: menuItem.text
-              )).toList(),
-              ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //       label: 'Profile',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.dashboard_rounded),
-      //       label: 'Request',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home_repair_service_rounded),
-      //       label: 'Service',
-      //     ),
-      //   ],
-      //   currentIndex: _selectedIndex,
-      //   selectedItemColor: PrimaryBrand,
-      //   onTap: _onItemTapped,
-      // ),
+        //   items: menuItemlist
+        //     .map((MenuItem menuItem) => BottomNavigationBarItem(
+        //       icon: Icon(menuItem.iconData),
+        //       label: menuItem.text
+        //       )).toList(),
+        //       ),
     );
   }
+  
 }
