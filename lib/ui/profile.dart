@@ -16,23 +16,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 
-
-// class MenuItem{
-//   final IconData iconData;
-//   final String text;
-
-//   MenuItem(this.iconData, this.text);
-// }
-
 class _ProfilePageState extends State<ProfilePage> {
-  // final menuItemlist = [
-  //   MenuItem(Icons.person_add, "Profile"),
-  //    MenuItem(Icons.dashboard_rounded, "Request"),
-  //     MenuItem(Icons.home_repair_service_rounded, "Service"),
-  // ];
-  // int index = 0;
-  // final _buildBody = const <Widget>[ProfilePage(), Service(),SimpleMap()];
-  
+
  
 
   @override
@@ -49,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 21.0),
+            padding: const EdgeInsets.only(right: 21.0, top: 5),
             child: Text("Edit", style: kprofileButNavBarHov,),
           )
         ],
@@ -66,15 +51,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 80,
                     width: 80,
                     margin: EdgeInsets.only(left: 25, top: 21),
-                    decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("images/profil_pc.png"))
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage("images/profil_pc.png"),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 0.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 24),
@@ -100,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 31.0, right: 12),
-                        child: Icon(Icons.maps_ugc_outlined, size: 21, ),
+                        child: Icon(Icons.maps_ugc, size: 21, ),
                       ),
                       Text("1234 Address Ln.", style: kprofileEmail,)
                     ],
@@ -178,7 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Service()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SimpleMap()));
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -201,25 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
        
       //buttom Navigation Bar
-         
-        // bottomNavigationBar: BottomNavigationBar(
-        //   type: BottomNavigationBarType.shifting,
-        //   currentIndex: index,
-        //   onTap: (x) {
-        //     setState(() {
-        //       index = x;
-        //     });
-        //   },
-        //   elevation: 16,
-        //   // showUnselectedLabels: Colors.black,
-        //   // showSelectedLabels: PrimaryBrand,
-          
-        //   items: menuItemlist
-        //     .map((MenuItem menuItem) => BottomNavigationBarItem(
-        //       icon: Icon(menuItem.iconData),
-        //       label: menuItem.text
-        //       )).toList(),
-        //       ),
+    
     );
   }
   

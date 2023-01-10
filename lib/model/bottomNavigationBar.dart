@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kngroo/constants/color_constant.dart';
 import 'package:kngroo/constants/style_constant.dart';
 import 'package:kngroo/ui/profile.dart';
@@ -31,12 +32,19 @@ final screens = [
       //bottomNavBar
         bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: PrimaryBrand,
-          //labelTextStyle: KservCartsmalTitle,
+          indicatorColor: Colors.transparent,
+          labelTextStyle: MaterialStatePropertyAll(
+            GoogleFonts.karla(
+              fontSize: 17, fontWeight: FontWeight.w700, color: SeconderyText
+            ),
+            
+          ),
         ),
          child: NavigationBar(
           height: 100,
           backgroundColor: ProfileBackground,
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          animationDuration: Duration(seconds: 3),
           selectedIndex: index,
           onDestinationSelected: (index) => 
           {

@@ -45,9 +45,6 @@ class _ServiceState extends State<Service> {
          },
       ),
 
-      //buttom Navigation Bar
-      
-      
       
     );
   }

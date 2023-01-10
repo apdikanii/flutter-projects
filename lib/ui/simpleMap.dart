@@ -11,32 +11,42 @@ class SimpleMap extends StatefulWidget {
 
 class _SimpleMapState extends State<SimpleMap> {
   late GoogleMapController mapController;
-  final LatLng _center = const LatLng(2.764392, 45.736084);
-  final Map<String, Marker> _markers = {};
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
+    Map<String, Marker> _markers = {};
+    final LatLng _center = const LatLng(2.764392, 45.736084);
+    void _onMapCreated(GoogleMapController controller){
+      mapController = controller;
+    }
 
-  @override
+
+
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoogleMap(
-        markers: _markers.values.toSet(),
-        initialCameraPosition: CameraPosition(
-        target: _center, zoom: 10.0),
-        onMapCreated: (controller){
-          _onMapCreated(controller);
-          addMarker("Test", _center);
-        },
+      // appBar: AppBar(
+      //   title: Text("Maps"),
+      // ),
+      body: Stack(
+        children: [
+          Container(
+          child: GoogleMap(
+            onMapCreated: (controller) {
+              _onMapCreated(controller);
+              addMarker("test", _center);
+            },
+            markers: _markers.values.toSet(),
+            initialCameraPosition: CameraPosition(target: _center, zoom: 11.0),
+            
+            ),
+        ),
+        ],
       ),
     );
   }
-}
-
+  
   addMarker(String id, LatLng location) async {
     var markerIcon = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(), 
-      "images/kangrooicon.png",);
+      "assets/images/kangroo.png",);
       var marker = Marker(markerId: MarkerId(id),
       position: location,
       infoWindow: const InfoWindow(
@@ -44,11 +54,9 @@ class _SimpleMapState extends State<SimpleMap> {
         snippet: "Some description of the place",
       ),
       icon: markerIcon,);
-      var _markers;
-      _markers (marker);
+      _markers[id] = marker;
       setState(() {
+        
       });
-}
-
-void setState(Null Function() param0) {
+  }
 }
