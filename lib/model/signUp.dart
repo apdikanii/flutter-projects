@@ -1,29 +1,19 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kngroo/constants/style_constant.dart';
-import 'package:kngroo/constants/globalBottom.dart';
-import 'package:kngroo/model/backgroundImage.dart';
-import 'package:kngroo/model/signUp.dart';
-import 'package:quickalert/quickalert.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:kngroo/constants/color_constant.dart';
+import 'package:kngroo/constants/globalBottom.dart';
+import 'package:kngroo/constants/style_constant.dart';
+import 'package:kngroo/ui/payment.dart';
 
-import '../constants/color_constant.dart';
-import '../ui/payment.dart';
-
-class LoginScreenpage extends StatefulWidget {
-  const LoginScreenpage({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<LoginScreenpage> createState() => _LoginScreenpageState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginScreenpageState extends State<LoginScreenpage> {
-
-
+class _SignUpState extends State<SignUp> {
   int _currIndex = 0;
 
     final login = TextEditingController();
@@ -61,35 +51,9 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
             padding: const EdgeInsets.only(bottom: 42),
             child: MyButtom(controller: popup, text: "Next"),
           )
-          // ElevatedButton(
-          //   onPressed: () => {
-          //     Navigator.of(context).pop(),
-          //   }, child: const Text("Next",),
-            
-          //   )
+  
           ],
       );
-      // return CupertinoAlertDialog(
-      //     content: Image.asset("images/pops.png"),
-      //     title: Text("1. Browse",textAlign: TextAlign.center, style: GoogleFonts.rubik(
-      //       fontSize: 26,
-      //       fontWeight: FontWeight.w500,
-      //       color: PrimaryBrand,
-      //     ),),
-          
-
-      // );
-      //   return AlertDialog(
-      //  //icon: Icon(Icons.question_answer_rounded),
-      //   title: const Text("1. Browse"),
-      //   content: const Text("Choose your preferred local laundry store from dozens of options nearby. View ratings and pricing per item for each store."),
-      //   actions: [
-      //       OutlinedButton(
-      //         onPressed: () => {
-      //           Navigator.of(context).pop(),
-      //         }, child: const Text("Next"))
-      //       ],
-      //   );
      }
      );
 }
@@ -98,7 +62,6 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset : false,
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -132,6 +95,28 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
             child: Column(
               children: [
                 // TextFiel login
+                const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      child: TextField(
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                       fillColor: Colors.white,
+                       filled: true,
+                        hintText: 'Full Name', hintStyle: TextStyle(
+                          color: hinttexts, fontSize: 17, fontWeight: FontWeight.w400),
+                        prefixIcon: Icon(Icons.person, color: PrimaryBrand),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: BackgroundColor)
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white, 
+                          ),
+                        )
+                      ),
+                  ),
+                ),
+                const SizedBox(height: 20,),
                 const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
                       child: TextField(
@@ -176,95 +161,25 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
                 ),
                 //login and password part was ended
                 Padding(
-                  padding: const EdgeInsets.only(left: 200, right: 40, top: 12),
-                  child: Text("Forget Password?",style: kloginText,),
+                  padding: const EdgeInsets.only(left: 220, right: 38, top: 18, bottom: 36),
+                  child: Text("Have already an account? Sign in",style: KsignUptext,),
                 ),
                 //login Buttom
-               Container(
-                    height: 55,
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.only(left: 40, right: 40),
-                    child: RawMaterialButton(
-                    child: Text("Log In",style: TextStyle(
-                        fontSize: 17, fontWeight: FontWeight.w700, color: Accent2
-                      ),),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Payment(),));
-                    },
-                    fillColor: PrimaryBrand,
-                    //hoverColor: SecondaryBrand,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    ),
-                  ),
-
-                // line seperater
-                const SizedBox(height: 45,),
-                 Container(
-                  child: Column(
-                    children: [
-                          Row(children: [
-                            Expanded(
-                              child:  Container(
-                                  margin: const EdgeInsets.only(left: 40.0, right: 20.0),
-                                  child: const Divider(
-                                    color: hinttexts,
-                                    height: 36,
-                                  )),
-                            ),
-                            const Text("OR", style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w400, color: PrimaryText
-                            ),),
-                            Expanded(
-                              child: Container(
-                                  margin: const EdgeInsets.only(left: 20.0, right: 40.0),
-                                  child: const Divider(
-                                    color: hinttexts,
-                                    height: 36,
-                                  )),
-                            ),
-                        ]),
-                    ],
-                  ),
-                 ),
-
-                 //signUp Buttom
-                 Container(
-                  margin: const EdgeInsets.only(top: 68),
+                Container(
                   child: Column(
                     children: [
                       MyButtom(
-                        controller: signupG,
-                        text: "Sign Up With Email",
+                        controller: login,
+                        text: "Sign Up",
                       ),
                     ],
-                  ),
-                 ),
-                SizedBox(height: 4,),
-
-                //SignUP with google
-                  Container(
-                    height: 55,
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.only(left: 40, right: 40),
-                    child: RawMaterialButton(
-                    child: Text("Sign Up With Google",style: TextStyle(
-                        fontSize: 17, fontWeight: FontWeight.w700, color: PrimaryBrand
-                      ),),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp(),));
-                    },
-                    fillColor: BackgroundColor2,
-                    hoverColor: SecondaryBrand,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    ),
-                  ),
-                  const SizedBox(height: 65,),
+                  )
+                ),
+              const Spacer(),
+              // bottom text
+              const SizedBox(height: 227,),
                  Padding(
-                   padding: const EdgeInsets.only(left: 77, right: 77,),
+                   padding: const EdgeInsets.only(left: 77, right: 77, bottom: 35,),
                    child: Text("Terms of Service and Privacy Policy", style: KloginHintStyle),
                  ),
 
@@ -276,6 +191,5 @@ class _LoginScreenpageState extends State<LoginScreenpage> {
       ),
       
     );
- }
+  }
 }
-

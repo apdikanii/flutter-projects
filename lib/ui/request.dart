@@ -18,38 +18,38 @@ class _RequestState extends State<Request> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    // SizeConfig().init(context);
     return Scaffold(
-      body:  Column(
-        children: [
-          SizedBox(
-            height: SizeConfig.blockSizeVertical*50,
-            //height: SizeConfig.screenHeight * 50,
-            child: Stack(
-              children: [
-                Image.asset("images/map.png",
-                height: SizeConfig.blockSizeVertical * 60,
-                width: double.infinity,
-                fit: BoxFit.cover,),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    height: 40,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(42),
-                        topRight: Radius.circular(42)
-                      ),
-                      color: PrimaryBrand,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+      // body:  Column(
+      //   children: [
+      //     SizedBox(
+      //       height: SizeConfig.blockSizeVertical*50,
+      //       //height: SizeConfig.screenHeight * 50,
+      //       child: Stack(
+      //         children: [
+      //           Image.asset("images/map.png",
+      //           height: SizeConfig.blockSizeVertical * 60,
+      //           width: double.infinity,
+      //           fit: BoxFit.cover,),
+      //           Align(
+      //             alignment: Alignment.bottomCenter,
+      //             child: Container(
+      //               height: 40,
+      //               width: double.infinity,
+      //               decoration: const BoxDecoration(
+      //                 borderRadius: BorderRadius.only(
+      //                   topLeft: Radius.circular(42),
+      //                   topRight: Radius.circular(42)
+      //                 ),
+      //                 color: PrimaryBrand,
+      //               ),
+      //             ),
+      //           )
+      //         ],
+      //       ),
+      //     )
+      //   ],
+      // ),
     );
   }
 }

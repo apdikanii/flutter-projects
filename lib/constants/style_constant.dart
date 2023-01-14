@@ -63,3 +63,7 @@ import 'package:kngroo/constants/color_constant.dart';
     var KservSubTitleSmal = GoogleFonts.karla(
       fontSize: 14, fontWeight: FontWeight.w400, color: PrimaryBrand
     );
+    //SignUp
+     var KsignUptext = GoogleFonts.karla(
+      fontSize: 14, fontWeight: FontWeight.w400, color: PrimaryText
+    );
